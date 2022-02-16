@@ -1,9 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pizza_polkowice/app/home/add_opinion/add_opinion_page_content.dart';
-import 'package:pizza_polkowice/app/home/my_account/my_account_page_content.dart';
-import 'package:pizza_polkowice/app/home/restaurants/restaurants_page_content.dart';
+import 'package:pizza_polkowice/app/features/home/add_opinion/add_opinion_page_content.dart';
+import 'package:pizza_polkowice/app/features/home/my_account/my_account_page_content.dart';
+import 'package:pizza_polkowice/app/features/home/restaurants/restaurants_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
