@@ -37,4 +37,22 @@ class LoginCubit extends Cubit<LoginState> {
       ));
     }
   }
+
+  Future<void> start() async {
+    emit(
+      const LoginState(
+        isCreatingAccount: false,
+        errorMessage: "",
+      ),
+    );
+  }
+
+  Future<void> setState() async {
+    emit(
+      const LoginState(
+        isCreatingAccount: true,
+        errorMessage: "",
+      ),
+    );
+  }
 }
