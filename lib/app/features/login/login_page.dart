@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_polkowice/app/features/login/cubit/login_cubit.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({
+  const LoginPage({
     Key? key,
   }) : super(key: key);
 
@@ -79,32 +79,22 @@ class _LoginPageState extends State<LoginPage> {
                           : 'Zaloguj się'),
                     ),
                     const SizedBox(height: 20),
-
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(state.isCreatingAccount
-                          ? 'Utwórz konto'
-                          : 'Masz już konto?'),
-                    ),
-                    // if (state.isCreatingAccount) {
-                    //   return TextButton(
-                    //      onPressed: () {
-
-                    //      },
-                    //     child: Text('Utwórz konto'),
-                    //   );
-                    // }
-
-                    // if (isCreatingAccount == true) ...[
-                    //   TextButton(
-                    //     onPressed: () {
-                    //       setState(() {
-                    //         isCreatingAccount = false;
-                    //       });
-                    //     },
-                    //     child: const Text('Masz już konto?'),
-                    //   ),
-                    // ],
+                    if (state.isCreatingAccount == false) ...{
+                      TextButton(
+                        onPressed: () {
+                          context.read<LoginCubit>().setState();
+                        },
+                        child: const Text("Utwórz konto"),
+                      ),
+                    },
+                    if (state.isCreatingAccount == true) ...{
+                      TextButton(
+                        onPressed: () {
+                          context.read<LoginCubit>().start();
+                        },
+                        child: const Text("Masz już konto?"),
+                      )
+                    }
                   ],
                 ),
               ),
